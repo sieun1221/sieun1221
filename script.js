@@ -1,8 +1,16 @@
 const slider = document.getElementById('slider');
 const indicator = document.getElementById('indicator');
+const slideLink = document.getElementById('slide-link');
 const slides = slider.querySelectorAll('img');
+
 let currentIndex = 0;
 const slideCount = slides.length;
+
+const slideLinks = [
+  { text: '→ FILM', url: 'film.html' },
+  { text: '→ CAMERA', url: 'camera.html' },
+  { text: '→ POST', url: 'post.html' }
+];
 
 // 인디케이터 dot 생성
 slides.forEach((_, idx) => {
@@ -19,6 +27,11 @@ function updateSlider() {
   const dots = indicator.querySelectorAll('.indicator-dot');
   dots.forEach(dot => dot.classList.remove('active'));
   dots[currentIndex].classList.add('active');
+
+  // 링크 텍스트 및 주소 변경
+  const { text, url } = slideLinks[currentIndex];
+  slideLink.textContent = text;
+  slideLink.href = url;
 }
 
 function nextSlide() {
@@ -31,3 +44,5 @@ function prevSlide() {
   updateSlider();
 }
 
+// 초기 상태 설정
+updateSlider();

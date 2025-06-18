@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FILM WHAT FILM</title>
+  <link rel="stylesheet" href="camera-detail.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+</head>
+<body class="film-page">
+  <div class="container">
+    <header class="header">
+      <a href="index.html" class="logo-circle">FILM<br>WHAT<br>FILM</a>
+    </header>
+
+    <section class="title-box">
+      <h1 class="main-title">FILM WHAT FILM</h1>
+      <p class="subtitle">camera and camera</p>
+      <div class="line"></div>
+    </section>
+
+    <h2 class="camera-title">자동 카메라</h2>
+
+    <div class="film-slider-wrapper">
+    
+      <div class="film-slider" id="filmSlider">
+        <div class="film-item">
+          <img src="camera/c1.png" alt="1">
+          <div class="film-caption">📷 Olympus Mju II<br>🎞 Kodak ColorPlus</div>
+        </div>
+        <div class="film-item">
+          <img src="camera/c2.png" alt="2">
+          <div class="film-caption">📷 Canon SureShot<br>🎞 Fujifilm C200</div>
+        </div>
+        <div class="film-item">
+          <img src="camera/c3.png" alt="3">
+          <div class="film-caption">📷 Nikon Zoom<br>🎞 Kodak Ultramax</div>
+        </div>
+        <div class="film-item">
+          <img src="camera/c4.png" alt="4">
+          <div class="film-caption">📷 Pentax Espio<br>🎞 Kodak Gold</div>
+        </div>
+        <div class="film-item">
+          <img src="camera/c5.png" alt="5">
+          <div class="film-caption">📷 Samsung Slim<br>🎞 Agfa Vista</div>
+        </div>
+        <div class="film-item">
+          <img src="camera/c6.png" alt="6">
+          <div class="film-caption">📷 Ricoh Shotmaster<br>🎞 Kodak Pro Image</div>
+        </div>
+        <div class="film-item">
+          <img src="camera/c7.png" alt="7">
+          <div class="film-caption">📷 Konica Big Mini<br>🎞 Fujicolor Superia</div>
+        </div>
+        <div class="film-item">
+          <img src="camera/c8.png" alt="8">
+          <div class="film-caption">📷 Minolta Riva<br>🎞 Lomography 400</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    const slider = document.getElementById("filmSlider");
+
+    function scrollLeft() {
+      slider.scrollBy({ left: -300, behavior: "smooth" });
+    }
+
+    function scrollRight() {
+      slider.scrollBy({ left: 300, behavior: "smooth" });
+    }
+
+    slider.addEventListener("wheel", (e) => {
+      e.preventDefault();
+      slider.scrollBy({ left: e.deltaY, behavior: "smooth" });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+html {
+    font-size: 185%;
+  }
+  
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Anton', sans-serif;
+    background-color: #e6ddca;
+    color: #2a2a2a;
+    text-align: center;
+  }
+  
+  .container {
+    max-width: 1800px;
+    margin: auto;
+    padding: 20px;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: flex-start;
+  }
+  
+  
+  .logo-circle {
+    position: fixed;            /* 화면 상단에 고정 */
+    top: 20px;
+    left: 20px;
+    z-index: 9999;              /* 어떤 요소 위로 띄움 */
+    pointer-events: auto;
+    cursor: pointer;
+  
+    background-color: #1e1b16;
+    color: white;
+    font-size: 0.75rem;
+    font-weight: bold;
+    padding: 10px 15px;
+    text-align: center;
+    border-radius: 50%;
+    line-height: 1.2;
+    text-decoration: none;
+    display: inline-block;
+  }
+  
+  
+  
+  
+  
+  
+  
+  .title-box {
+    position: relative;
+    z-index: 1;
+  }
+  
+  
+  .main-title {
+    font-size: 2.8rem;
+    font-weight: bold;
+  }
+  
+  .subtitle {
+    color: #934c17;
+    margin-top: 5px;
+    font-size: 1rem;
+  }
+  
+  .line {
+    width: 100px;
+    height: 4px;
+    background-color: #934c17;
+    margin: 10px auto;
+    border-radius: 4px;
+  }
+  
+
+
+.film-slider-wrapper {
+    position: relative;
+    background: url("img/film-frame.png") repeat-x center;
+    background-size: 100% 500px;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    padding: 0 60px;
+  }
+  
+  .film-slider {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    height: 100%;
+    align-items: center;
+  }
+  .film-slider::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .film-slider {
+    -ms-overflow-style: none;  /* IE, Edge */
+    scrollbar-width: none;     /* Firefox */
+  }
+  
+  
+  .film-item {
+    position: relative;
+    flex: 0 0 auto;
+    width: 200px;
+    height: 270px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .film-item img {
+    width: 180px;
+    height: 240px;
+    object-fit: cover;
+    border-radius: 6px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* 마우스 오버 텍스트 */
+  .film-caption {
+    position: absolute;
+    bottom: 12px;
+    left: 50%;  
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.75);
+    color: white;
+    padding: 8px 12px;
+    font-size: 0.85rem;
+    border-radius: 6px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    white-space: nowrap;
+  }
+  
+  .film-item:hover .film-caption {
+    opacity: 1;
+  }
+  

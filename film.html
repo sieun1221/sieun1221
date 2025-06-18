@@ -3,21 +3,197 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>FILM WHAT FILM</title>
+  <title>FILM LIST</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="film-style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+  <style>
+    .film-slider-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 20px 0;
+    }
+
+    .film-slider {
+      display: flex;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      gap: 10px;
+      padding: 20px;
+      background: url('/img/film-frame.png') center/contain no-repeat;
+      background-size: cover;
+      width: 90%;
+    }
+
+    .arrow {
+      position: relative;
+      font-size: 2.5rem;
+      background: none;
+      border: none;
+      color: rgba(255, 255, 255, 0.6);
+      cursor: pointer;
+      user-select: none;
+      z-index: 10;
+      transition: color 0.3s;
+    }
+
+    .arrow:hover {
+      color: white;
+    }
+
+    .film-item img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 6px;
+      border: 2px solid #2a2a2a;
+    }
+
+    .film-item {
+      flex: 0 0 auto;
+    }
+  </style>
 </head>
-<body>
+<body class="film-page">
   <div class="container">
-    
     <header class="header">
-      <div class="logo-circle">FILM<br>WHAT<br>FILM</div>
+      <a href="index.html" class="logo-circle">FILM<br>WHAT<br>FILM</a>
     </header>
 
     <section class="title-box">
-      <h1 class="main-title">FILM WHAT FILM</h1>
-      <p class="subtitle">film and camera</p>
+      <h1 class="main-title">FILM LIST</h1>
+      <p class="subtitle">iso-based film collection</p>
       <div class="line"></div>
     </section>
+
+<!-- ISO 100~200 -->
+<section class="film-section">
+  <h2 class="section-title">ISO 100~200</h2>
+  <div class="film-slider-outer">
+    <button class="arrow left" onclick="scrollLeftById('iso100')">‹</button>
+
+    <div class="film-slider-wrapper">
+      <div class="film-slider" id="iso100">
+        <div class="film-item"><img src="film/1.png" /></div>
+        <div class="film-item"><img src="film/2.png" /></div>
+        <div class="film-item"><img src="film/3.png" /></div>
+        <div class="film-item"><img src="film/4.png" /></div>
+        <div class="film-item"><img src="film/5.png" /></div>
+        <div class="film-item"><img src="film/6.png" /></div>
+        <div class="film-item"><img src="film/7.png" /></div>
+        <div class="film-item"><img src="film/8.png" /></div>
+        <div class="film-item"><img src="film/9.png" /></div>
+        <div class="film-item"><img src="film/10.png" /></div>
+      </div>
+    </div>
+
+    <button class="arrow right" onclick="scrollRightById('iso100')">›</button>
   </div>
+</section>
+
+<!-- ISO 400~500 -->
+<section class="film-section">
+  <h2 class="section-title">ISO 400~500</h2>
+  <div class="film-slider-outer">
+    <button class="arrow left" onclick="scrollLeftById('iso400')">‹</button>
+
+    <div class="film-slider-wrapper">
+      <div class="film-slider" id="iso400">
+        <div class="film-item"><img src="film/11.png" /></div>
+        <div class="film-item"><img src="film/12.png" /></div>
+        <div class="film-item"><img src="film/13.png" /></div>
+        <div class="film-item"><img src="film/14.png" /></div>
+        <div class="film-item"><img src="film/15.png" /></div>
+        <div class="film-item"><img src="film/16.png" /></div>
+        <div class="film-item"><img src="film/17.png" /></div>
+        <div class="film-item"><img src="film/18.png" /></div>
+        <div class="film-item"><img src="film/19.png" /></div>
+        <div class="film-item"><img src="film/20.png" /></div>
+      </div>
+    </div>
+
+    <button class="arrow right" onclick="scrollRightById('iso400')">›</button>
+  </div>
+</section>
+
+<!-- ISO 800~1600 -->
+<section class="film-section">
+  <h2 class="section-title">ISO 800~1600</h2>
+  <div class="film-slider-outer">
+    <button class="arrow left" onclick="scrollLeftById('iso800')">‹</button>
+
+    <div class="film-slider-wrapper">
+      <div class="film-slider" id="iso800">
+        <div class="film-item"><img src="film/21.png" /></div>
+        <div class="film-item"><img src="film/22.png" /></div>
+        <div class="film-item"><img src="film/23.png" /></div>
+        <div class="film-item"><img src="film/24.png" /></div>
+        <div class="film-item"><img src="film/25.png" /></div>
+        <div class="film-item"><img src="film/26.png" /></div>
+        <div class="film-item"><img src="film/27.png" /></div>
+        <div class="film-item"><img src="film/28.png" /></div>
+        <div class="film-item"><img src="film/29.png" /></div>
+        <div class="film-item"><img src="film/30.png" /></div>
+      </div>
+    </div>
+
+    <button class="arrow right" onclick="scrollRightById('iso800')">›</button>
+  </div>
+</section>
+
+
+  </div>
+
+  <script>
+    function scrollSmooth(container, direction = "right", distance = 600, duration = 1000) {
+      const start = container.scrollLeft;
+      const step = direction === "right" ? 1 : -1;
+      const target = start + step * distance;
+      const startTime = performance.now();
+
+      function animateScroll(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const ease = progress < 0.5
+          ? 4 * progress * progress * progress
+          : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+
+        container.scrollLeft = start + (target - start) * ease;
+
+        if (elapsed < duration) {
+          requestAnimationFrame(animateScroll);
+        }
+      }
+
+      requestAnimationFrame(animateScroll);
+    }
+
+    function scrollLeftById(id) {
+      const container = document.getElementById(id);
+      if (container) scrollSmooth(container, "left", 600, 1000);
+    }
+
+    function scrollRightById(id) {
+      const container = document.getElementById(id);
+      if (container) scrollSmooth(container, "right", 600, 1000);
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      document.querySelectorAll('.film-item img').forEach(img => {
+        const src = img.getAttribute('src');
+        const match = src.match(/(\d+)\.png$/);
+        if (match) {
+          const id = match[1];
+          const link = document.createElement('a');
+          link.href = `film-detail.html?film=${id}`;
+          link.className = 'film-item';
+          img.parentNode.replaceChild(link, img);
+          link.appendChild(img);
+        }
+      });
+    });
+  </script>
 </body>
+</html>

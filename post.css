@@ -1,0 +1,113 @@
+/* 기본 설정 */
+html {
+    font-size: 185%;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: #e6ddca;
+    color: #2a2a2a;
+    font-family: 'Anton', sans-serif;
+  }
+  
+  
+  /* 로고 고정 */
+  .logo-circle {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+    background-color: #1e1b16;
+    color: white;
+    font-size: 0.75rem;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 1.2;
+    text-decoration: none;
+  }
+  
+  /* 헤더 텍스트 */
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 40px;
+    margin-top: 30px;
+  }
+  
+  .main-title {
+    font-size: 2.6rem;
+    margin: 0;
+  }
+  
+  .subtitle {
+    font-size: 1rem;
+    color: #934c17;
+    margin: 4px 0;
+    text-align: center;
+  }
+  
+  .line {
+    width: 100px;
+    height: 4px;
+    background-color: #934c17;
+    border-radius: 4px;
+    margin-top: 6px;
+  }
+  
+  /* 상단 가로 이미지 그룹 */
+  .gallery-hero {
+    overflow: hidden;
+    margin-bottom: 40px;
+  }
+  
+  .gallery-images {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: nowrap;
+  }
+  
+  .gallery-images img {
+    width: 160px;
+    height: auto;
+    border-radius: 6px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+  }
+  
+  .gallery-images img:hover {
+    transform: scale(1.05);
+  }
+  
+  /* 전시 사진 그리드 */
+  .photo-wall {
+    margin-top: 40px;
+    margin-bottom: 120px;
+  }
+  
+  .photo-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .photo-grid img {
+    height: 280px;
+   
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  }
+  
+  
+  
+  .photo-grid img:hover {
+    transform: scale(1.03);
+  }
+  

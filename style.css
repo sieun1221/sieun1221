@@ -1,3 +1,8 @@
+html {
+  font-size: 185%;
+}
+
+
 * {
   margin: 0;
   padding: 0;
@@ -6,24 +11,31 @@
 
 body {
   font-family: 'Anton', sans-serif;
-  background-color: #e6ddca; /* 기존 배경색 유지 */
+  background-color: #e6ddca;
   color: #2a2a2a;
   text-align: center;
 }
 
 .container {
-  max-width: 900px;
+  max-width: 1000px;
   margin: auto;
   padding: 20px;
 }
 
-/* 헤더 및 로고 */
 .header {
   display: flex;
   justify-content: flex-start;
 }
 
+
 .logo-circle {
+  position: fixed;            /* 화면 상단에 고정 */
+  top: 20px;
+  left: 20px;
+  z-index: 9999;              /* 어떤 요소 위로 띄움 */
+  pointer-events: auto;
+  cursor: pointer;
+
   background-color: #1e1b16;
   color: white;
   font-size: 0.75rem;
@@ -32,12 +44,21 @@ body {
   text-align: center;
   border-radius: 50%;
   line-height: 1.2;
+  text-decoration: none;
+  display: inline-block;
 }
 
-/* 타이틀 */
+
+
+
+
+
+
 .title-box {
-  margin-top: 10px;
+  position: relative;
+  z-index: 1;
 }
+
 
 .main-title {
   font-size: 2.8rem;
@@ -58,7 +79,6 @@ body {
   border-radius: 4px;
 }
 
-/* 슬라이더 */
 .slider-wrapper {
   position: relative;
   overflow: hidden;
@@ -71,6 +91,7 @@ body {
   display: flex;
   transition: transform 0.5s ease-in-out;
   width: 100%;
+  height: 100%;
 }
 
 .slider img {
@@ -79,7 +100,6 @@ body {
   object-fit: cover;
 }
 
-/* 슬라이더 버튼 */
 .slider-button {
   position: absolute;
   top: 50%;
@@ -87,8 +107,8 @@ body {
   background: none;
   border: none;
   font-size: 3rem;
-  color: rgba(0, 0, 0, 0.4); /* 밝은 배경에서도 잘 보이는 연한 검정 */
-  text-shadow: 0 0 2px rgba(255, 255, 255, 0.6); /* 대비용 그림자 */
+  color: rgba(0, 0, 0, 0.4);
+  text-shadow: 0 0 2px rgba(255, 255, 255, 0.6);
   cursor: pointer;
   z-index: 10;
   padding: 0 20px;
@@ -112,7 +132,6 @@ body {
   transform: translateY(-50%) scale(1.1);
 }
 
-/* 인디케이터 */
 .indicator {
   position: absolute;
   top: -20px;
@@ -135,9 +154,9 @@ body {
   background-color: #934c17;
 }
 
-/* FILM 버튼 */
 .film-link {
   margin-top: 20px;
+  display: inline-block;
   font-size: 1.3rem;
   text-decoration: none;
   color: #2a2a2a;
@@ -152,7 +171,6 @@ body {
   border-radius: 5px;
 }
 
-/* 반응형 */
 @media (max-width: 600px) {
   .main-title {
     font-size: 1.8rem;
@@ -173,3 +191,233 @@ body {
   }
 }
 
+/* film.html 전용 스타일 (index.html에 영향 없음) */
+
+
+.film-page .film-section {
+  margin: 60px 0;
+}
+
+.film-page .section-title {
+  font-size: 1.5rem;
+  text-align: left;
+  margin: 0 0 10px 10px;  /* 위, 오른쪽, 아래, 왼쪽 순 */
+  transform: translateY(55px);  /* 아래로 10px 이동 */
+}
+
+
+
+
+
+
+.film-slider {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+}
+
+.film-item {
+  flex: 0 0 auto;
+  width: 140px;   /* 프레임 안쪽 사이즈 맞춤 */
+  height: 105px;
+  padding: 5px;
+  box-sizing: border-box;
+}
+
+.film-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background-color: transparent;
+  border: none;
+}
+
+
+
+.film-page .film-slider {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 10px;
+  padding: 10px;
+}
+
+
+.film-slider-outer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 40px auto;
+  gap: 20px;
+  transform: scale(1.35); /* 전체 크기 더 확대 */
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+
+.film-slider-wrapper {
+  flex-grow: 1;
+  overflow: hidden;
+  position: relative;
+  padding: 30px 20px;
+  background-image: url('img/film-frame.png');
+  background-repeat: repeat-x;
+  background-size: contain;
+  background-position: center;
+}
+
+.film-page .film-slider {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 6px; /* ✅ 간격 줄임 */
+  padding: 10px 5px;
+}
+
+.film-page .film-item {
+  flex: 0 0 19.2%;  /* ✅ 간격 줄인 만큼 너비 확장 */
+  height: 160px;     /* ✅ 높이 키움 */
+}
+
+.film-page .film-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 2px solid #2a2a2a;
+}
+
+/* 화살표 */
+.film-page .arrow {
+  font-size: 3.5rem;
+  background: none;
+  border: none;
+  color: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.3s ease, transform 0.3s ease;
+  z-index: 100;
+}
+
+.film-page .arrow:hover {
+  color: #934c17;
+  transform: scale(1.2);
+}
+
+.film-page .film-slider::-webkit-scrollbar {
+  display: none;
+}
+
+/* 반응형 */
+@media (max-width: 1024px) {
+  .film-slider-outer {
+    transform: scale(1.15);
+  }
+
+  .film-page .film-item {
+    flex: 0 0 30%;
+    height: 130px;
+  }
+}
+
+@media (max-width: 600px) {
+  .film-slider-outer {
+    transform: scale(1);
+    flex-direction: column;
+  }
+
+  .film-page .arrow {
+    font-size: 2rem;
+  }
+
+  .film-page .film-item {
+    flex: 0 0 85%;
+    height: 100px;
+  }
+
+  .film-page .film-item img {
+    height: 100px;
+  }
+}
+
+
+/* 좌우 화살표 버튼 */
+.film-page .arrow {
+  font-size: 2.8rem;
+  background: none;
+  border: none;
+  color: rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.film-page .arrow:hover {
+  color: #934c17;
+  transform: scale(1.2);
+}
+
+
+
+
+.film-page .film-slider::-webkit-scrollbar {
+  display: none;
+}
+
+.film-page .film-item {
+  flex: 0 0 auto;
+  width: 100px;
+  height: 100px;
+}
+
+
+
+.film-page .film-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 2px solid #2a2a2a;
+}
+
+
+.film-page .film-item p {
+  font-size: 0.9rem;
+  margin-top: 5px;
+}
+
+.film-page .arrow {
+  font-size: 2.5rem;
+  background: none;
+  border: none;
+  color: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  z-index: 10;
+  transition: color 0.3s;
+  user-select: none;
+}
+
+.film-page .arrow:hover {
+  color: #934c17;
+}
+
+/* 반응형 대응 */
+@media (max-width: 600px) {
+  .film-page .arrow {
+    font-size: 2rem;
+  }
+
+  .film-page .film-item {
+    width: 80px;
+  }
+
+  .film-page .film-item img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .film-page .film-item p {
+    font-size: 0.8rem;
+  }
+}

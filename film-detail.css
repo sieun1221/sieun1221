@@ -1,0 +1,238 @@
+html {
+  font-size: 185%;
+}
+
+body {
+  font-family: 'Anton', sans-serif;
+  background-color: #e6ddca;
+  color: #2a2a2a;
+  margin: 0;
+  padding: 0;
+  font-size: 1rem;
+  transform-origin: top center;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 1500px;
+  margin: auto;
+  padding: 0px 40px;
+}
+
+.logo-circle {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 9999;
+  pointer-events: auto;
+  cursor: pointer;
+  background-color: #1e1b16;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: bold;
+  padding: 10px 15px;
+  text-align: center;
+  border-radius: 50%;
+  line-height: 1.2;
+  text-decoration: none;
+  display: inline-block;
+}
+
+/* 제목 박스 */
+.title-box {
+  margin-bottom: 15px;
+}
+
+.main-title-link {
+  color: inherit;
+  text-decoration: none;
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+}
+
+.main-title-link:hover {
+  text-decoration: underline;
+  color: #934c17;
+}
+
+.main-title {
+  font-size: 2.5rem;
+  margin: 2px 0 0px 0;
+  font-weight: bold;
+}
+
+.subtitle {
+  font-size: 1.4rem;
+  color: #934c17;
+  margin: 2px 0 4px 0;
+}
+
+.line {
+  width: 100px;
+  height: 4px;
+  background-color: #934c17;
+  border-radius: 4px;
+  margin-top: 6px;
+  margin-bottom: 0;
+}
+
+/* 본문 영역 */
+.detail-content {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  gap: 20px;
+}
+
+.left, .right {
+  flex: 1;
+  min-width: 280px;
+}
+
+.left img {
+  width: 100%;
+  max-width: 700px;
+  border-radius: 8px;
+}
+
+#film-img {
+  width: 80%;
+  max-width: 600px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+  margin: 20px auto;
+  border: none;
+  border-radius: 0;
+}
+
+.film-name {
+  font-size: 1.9rem;
+  margin-bottom: 20px;
+}
+
+.film-iso, .film-star {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.film-star {
+  font-size: 1.4rem;
+  color: #934c17;
+  position: relative;
+}
+
+/* 예시 보기 텍스트 및 팝업 */
+.example-hover {
+  position: relative;
+  margin-top: 10px;
+  display: inline-block;
+}
+
+.example-text {
+  display: inline-block;
+  font-size: 1.25rem;
+  color: #934c17;
+  font-weight: bold;
+  padding: 6px 12px;
+  border: 2px solid #934c17;
+  border-radius: 30px;
+  background-color: #e6ddca;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.example-text:hover {
+  background-color: #934c17;
+  color: white;
+}
+
+.example-preview {
+  display: none;
+  position: absolute;
+  top: 120%;
+  left: 0;
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
+  z-index: 1000;
+  gap: 20px;
+  display: flex;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.example-hover:hover .example-preview {
+  display: flex;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.example-preview img {
+  height: 180px;
+  width: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+
+/* 슬라이더 (필요 시 유지) */
+.film-slider-wrapper {
+  overflow: hidden;
+  padding: 10px 0;
+  margin-top: 40px;
+}
+
+.film-slider {
+  display: flex;
+  gap: 12px;
+  scroll-behavior: smooth;
+  overflow-x: auto;
+  padding: 10px 5px;
+}
+
+.film-item {
+  flex: 0 0 auto;
+  width: 140px;
+  height: 105px;
+  padding: 5px;
+  box-sizing: border-box;
+}
+
+.film-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background-color: transparent;
+  border: none;
+}
+
+.film-slider-controls {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 20px;
+}
+
+.film-slider-controls .arrow {
+  font-size: 3.5rem;
+  background: none;
+  border: none;
+  color: rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+  transition: transform 0.3s ease, color 0.3s ease;
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+}
+
+.film-slider-controls .arrow:hover {
+  color: #934c17;
+  transform: scale(1.2);
+}
